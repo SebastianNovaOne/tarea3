@@ -1,9 +1,9 @@
 package grafica;
 
 import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Graphics;
 import logica.Expendedor;
-
-import java.awt.*;
 
 public class PanelPrincipal extends JPanel{
     private PanelComprador comprador;
@@ -24,5 +24,12 @@ public class PanelPrincipal extends JPanel{
         add(expendedor);
         add(comprador);
         comprador.setVisible(true);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        expendedor.repaint();
+        comprador.repaint();
     }
 }
