@@ -147,4 +147,19 @@ public class Expendedor {
                 return null;
         }
     }
+
+    public Deposito<Producto> getDepositoProducto(int indice) {
+        if (indice >= 0 && indice < depositos.length)
+            return depositos[indice];
+        else
+            return null;
+    }
+
+    public Deposito<Moneda> getDepositoVuelto() {
+        return depositoVuelto;
+    }
+
+    public Producto getProductoPorTipo(ProductoEnum producto) {
+        return crearProducto(producto);
+    }
 }
