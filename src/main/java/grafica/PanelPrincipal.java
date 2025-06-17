@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import logica.Expendedor;
 
-public class PanelPrincipal extends JPanel{
+public class PanelPrincipal extends JPanel {
     private PanelComprador comprador;
     private PanelExpendedor expendedor;
     private Expendedor expendedorLogica;
