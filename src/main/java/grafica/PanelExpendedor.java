@@ -9,4 +9,5 @@ public class PanelExpendedor extends JPanel {
     private PanelDepositoProducto[] panelesProductos;
     private PanelDepositoMoneda panelMonedasVuelto;
     private PanelDepositoMoneda panelMonedasIngresadas;
+
 }
