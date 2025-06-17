@@ -44,4 +44,11 @@ public class Deposito<T> {
     public int getCantidad() {
         return items.size();
     }
+
+    public T getItem(int index) {
+        if (index >= 0 && index < items.size()) {
+            return items.get(index);
+        }
+        return null;
+    }
 }
