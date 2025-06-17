@@ -36,4 +36,12 @@ public class Deposito<T> {
         if (items.isEmpty()) return null;
         return items.remove(0);
     }
+
+    public boolean estaVacio() {
+        return items.isEmpty();
+    }
+
+    public int getCantidad() {
+        return items.size();
+    }
 }
