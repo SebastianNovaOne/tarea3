@@ -27,6 +27,46 @@ public class PanelComprador extends JPanel {
         zonas.put("Producto3", new Zona(270, 100, 100, 40, new Color(250, 112, 0), "Fanta"));
         zonas.put("Producto4", new Zona(30, 160, 100, 40, new Color(150,75,0), "Snickers"));
         zonas.put("Producto5", new Zona(150, 160, 100, 40, Color.LIGHT_GRAY, "Super8"));
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                for (String identificadorZona : zonas.keySet()) {
+                    Zona z = zonas.get(identificadorZona);
+                    if (z.contiene(e.getX(), e.getY())) {
+                        if (identificadorZona.startsWith("Moneda")) {
+                            switch (identificadorZona) {
+                                case "Moneda100" -> monedaSeleccionada = new Moneda100();
+                                case "Moneda500" -> monedaSeleccionada = new Moneda500();
+                                case "Moneda1000" -> monedaSeleccionada = new Moneda1000();
+                            }
+                            System.out.println("Moneda seleccionada: " + identificadorZona);
+                            repaint();
+                        } else if (identificadorZona.startsWith("Producto")) {
+                            if (monedaSeleccionada != null) {
+                                switch (identificadorZona) {
+                                    case "Producto1" -> productoSeleccionado = ProductoEnum.COCACOLA;
+                                    case "Producto2" -> productoSeleccionado = ProductoEnum.SPRITE;
+                                    case "Producto3" -> productoSeleccionado = ProductoEnum.FANTA;
+                                    case "Producto4" -> productoSeleccionado = ProductoEnum.SNICKERS;
+                                    case "Producto5" -> productoSeleccionado = ProductoEnum.SUPER8;
+                                }
+
+                                System.out.println("Producto seleccionado: " + productoSeleccionado.name());
+
+                                expendedor.comprar(monedaSeleccionada, productoSeleccionado);
+                                monedaSeleccionada = null;
+                                productoSeleccionado = null;
+                                repaint();
+                            } else {
+                                System.out.println("Selecciona una moneda antes de elegir un producto.");
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        });
     }
 
     @Override
