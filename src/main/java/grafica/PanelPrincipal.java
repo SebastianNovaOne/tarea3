@@ -18,8 +18,8 @@ public class PanelPrincipal extends JPanel {
         expendedor = new PanelExpendedor(expendedorLogica);
         comprador = new PanelComprador(expendedor);
 
-        expendedor.setBounds(0, 0, 0, 0);
-        comprador.setBounds(0, 0, 0, 0);
+        expendedor.setBounds(50, 50, 550, 420);
+        comprador.setBounds(650, 50, 400, 220);
 
         add(expendedor);
         add(comprador);

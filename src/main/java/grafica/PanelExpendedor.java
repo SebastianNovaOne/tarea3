@@ -80,9 +80,9 @@ public class PanelExpendedor extends JPanel {
         g.fillRect(0,0,0,0);
 
         g.setColor(Color.BLACK);
-        g.drawString("Expendedor",0,0);
-        g.drawString("Vuelto",0,0);
-        g.drawString("Monedas Ingresadas",0,0);
+        g.drawString("Expendedor",10,25);
+        g.drawString("Vuelto",20,315);
+        g.drawString("Monedas Ingresadas",20,215);
 
     }
 }
