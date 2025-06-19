@@ -2,6 +2,7 @@ package grafica;
 
 import javax.swing.*;
 import logica.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -57,5 +58,18 @@ public class PanelExpendedor extends JPanel {
         } catch (PagoInsuficienteException | PagoIncorrectoException | NoHayProductoException e) {
             System.out.println("Error al comprar: " + e.getMessage());
         }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect();
+
+        g.setColor(Color.BLACK);
+        g.drawString("Expendedor",);
+        g.drawString("Vuelto",);
+        g.drawString("Monedas Ingresadas",);
+
     }
 }
