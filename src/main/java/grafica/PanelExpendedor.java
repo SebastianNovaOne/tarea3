@@ -60,6 +60,19 @@ public class PanelExpendedor extends JPanel {
         }
     }
 
+    private void rellenarDepositosVacios() {
+        for (int i = 0; i < panelesProductos.length; i++) {
+            var deposito = expendedor.getDepositoProducto(i);
+            if (deposito.estaVacio()) {
+                ProductoEnum tipo = ProductoEnum.values()[i];
+                for (int j = 0; j < 5; j++) {
+                    deposito.agregar(expendedor.getProductoPorTipo(tipo));
+                }
+                panelesProductos[i].repaint();
+            }
+        }
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
