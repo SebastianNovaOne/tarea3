@@ -41,4 +41,21 @@ public class PanelExpendedor extends JPanel {
             }
         });
     }
+
+    public void comprar(Moneda moneda, ProductoEnum producto) {
+        try {
+            expendedor.comprarProducto(moneda, producto);
+            Producto comprado = expendedor.getProducto();
+            if (comprado != null) {
+                if (comprado instanceof Bebida) {
+                    System.out.println("glu glu glu");
+                } else if (comprado instanceof Dulce) {
+                    System.out.println("ñom ñom ñom");
+                }
+            }
+            repaint();
+        } catch (PagoInsuficienteException | PagoIncorrectoException | NoHayProductoException e) {
+            System.out.println("Error al comprar: " + e.getMessage());
+        }
+    }
 }
