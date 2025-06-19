@@ -22,7 +22,7 @@ public class PanelExpendedor extends JPanel {
 
         for (int i = 0; i < numProductos; i++) {
             panelesProductos[i] = new PanelDepositoProducto(expendedor.getDepositoProducto(i));
-            panelesProductos[i].setBounds(0,0,0,0);
+            panelesProductos[i].setBounds(20 + i * 100,50,80,150);
             this.add(panelesProductos[i]);
         }
 
