@@ -27,11 +27,11 @@ public class PanelExpendedor extends JPanel {
         }
 
         panelMonedasVuelto = new PanelDepositoMoneda(expendedor.getDepositoVuelto());
-        panelMonedasVuelto.setBounds(0,0,0,0);
+        panelMonedasVuelto.setBounds(20,320,510,80);
         this.add(panelMonedasVuelto);
 
         panelMonedasIngresadas = new PanelDepositoMoneda(expendedor.getDepositoMonedasIngresadas());
-        panelMonedasIngresadas.setBounds(0,0,0,0);
+        panelMonedasIngresadas.setBounds(20,220,510,80);
         this.add(panelMonedasIngresadas);
 
         this.addMouseListener(new MouseAdapter() {
