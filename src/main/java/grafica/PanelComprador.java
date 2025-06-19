@@ -13,6 +13,12 @@ public class PanelComprador extends JPanel {
     private ProductoEnum productoSeleccionado;
     private PanelExpendedor expendedor;
 
+    public PanelComprador(PanelExpendedor exp) {
+        this.expendedor = exp;
+        this.zonas = new HashMap<>();
+        setBackground(Color.WHITE);
+    }
+
     private static class Zona {
         int x, y, ancho, alto;
         Color color;
