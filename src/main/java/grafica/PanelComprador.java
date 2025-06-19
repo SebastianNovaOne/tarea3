@@ -64,6 +64,8 @@ public class PanelComprador extends JPanel {
             g.fillRect(x, y, ancho, alto);
             g.setColor(Color.BLACK);
             g.drawRect(x, y, ancho, alto);
+            g.setFont(new Font("Arial", Font.BOLD, 14));
+            g.drawString(texto, x + 10, y + 25);
         }
 
         public boolean contiene(int px, int py) {
