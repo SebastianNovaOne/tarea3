@@ -77,7 +77,7 @@ public class PanelExpendedor extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0,0,0,0);
+        g.fillRect(10, 10, this.getWidth() - 20, this.getHeight() - 20);
 
         g.setColor(Color.BLACK);
         g.drawString("Expendedor",10,25);
