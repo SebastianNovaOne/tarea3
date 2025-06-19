@@ -84,5 +84,12 @@ public class PanelExpendedor extends JPanel {
         g.drawString("Vuelto",20,315);
         g.drawString("Monedas Ingresadas",20,215);
 
+        g.setFont(g.getFont().deriveFont(Font.BOLD, 14));
+        for (int i = 0; i < panelesProductos.length; i++) {
+            int x = 20 + i * 100;
+            int y = 40;
+            int precio = ProductoEnum.values()[i].getPrecio();
+            g.drawString("$" + precio, x + 20, y);
+        }
     }
 }
