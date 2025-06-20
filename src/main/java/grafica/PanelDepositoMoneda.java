@@ -7,10 +7,18 @@ import logica.Moneda;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Panel que representa un deposito de monedas y permite retirar monedas usando el mouse.
+ */
 public class PanelDepositoMoneda extends JPanel {
 
     private Deposito<Moneda> deposito;
 
+    /**
+     * Constructor que inicia el panel con un deposito de monedas dentro del expendedor.
+     *
+     * @param deposito deposito de monedas a mostrar
+     */
     public PanelDepositoMoneda(Deposito<Moneda> deposito) {
         this.deposito = deposito;
         this.setPreferredSize(new Dimension(100, 80));
@@ -26,6 +34,11 @@ public class PanelDepositoMoneda extends JPanel {
         });
     }
 
+    /**
+     * Dibuja las monedas que estan en el deposito.
+     *
+     * @param g objeto Graphics que sirve para pintar
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -56,6 +69,12 @@ public class PanelDepositoMoneda extends JPanel {
         }
     }
 
+    /**
+     * Obtiene el color correspondiente segun el valor de la moneda.
+     *
+     * @param valor valor de la moneda
+     * @return color asociado a la moneda
+     */
     private Color getColorMoneda(int valor) {
         switch (valor) {
             case 500: return Color.ORANGE;
