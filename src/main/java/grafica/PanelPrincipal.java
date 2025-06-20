@@ -2,14 +2,19 @@ package grafica;
 
 import javax.swing.JPanel;
 import java.awt.Color;
-import java.awt.Graphics;
 import logica.Expendedor;
 
+/**
+ * Panel principal que contiene los subpaneles del expendedor y comprador.
+ */
 public class PanelPrincipal extends JPanel {
     private PanelComprador comprador;
     private PanelExpendedor expendedor;
     private Expendedor expendedorLogica;
 
+    /**
+     * Constructor que inicializa el panel principal con los subpaneles.
+     */
     public PanelPrincipal() {
         setBackground(Color.WHITE);
         setLayout(null);
@@ -24,12 +29,5 @@ public class PanelPrincipal extends JPanel {
         add(expendedor);
         add(comprador);
         comprador.setVisible(true);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        expendedor.repaint();
-        comprador.repaint();
     }
 }
