@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Panel que muestra el expendedor, sus productos y monedas.
+ */
 public class PanelExpendedor extends JPanel {
 
     private Expendedor expendedor;
@@ -13,6 +16,11 @@ public class PanelExpendedor extends JPanel {
     private PanelDepositoMoneda panelMonedasVuelto;
     private PanelDepositoMoneda panelMonedasIngresadas;
 
+    /**
+     * Constructor que inicializa el panel con los depositos de productos y monedas.
+     *
+     * @param expendedor instancia de la logica del expendedor.
+     */
     public PanelExpendedor(Expendedor expendedor) {
         this.expendedor = expendedor;
         this.setLayout(null);
@@ -43,6 +51,12 @@ public class PanelExpendedor extends JPanel {
         });
     }
 
+    /**
+     * Realiza la compra de un producto usando una moneda.
+     *
+     * @param moneda moneda usada para pagar
+     * @param producto tipo de producto a comprar
+     */
     public void comprar(Moneda moneda, ProductoEnum producto) {
         try {
             expendedor.comprarProducto(moneda, producto);
@@ -60,6 +74,9 @@ public class PanelExpendedor extends JPanel {
         }
     }
 
+    /**
+     * Llena los depositos de productos vacios con 5 unidades nuevas.
+     */
     private void rellenarDepositosVacios() {
         for (int i = 0; i < panelesProductos.length; i++) {
             var deposito = expendedor.getDepositoProducto(i);
@@ -73,6 +90,11 @@ public class PanelExpendedor extends JPanel {
         }
     }
 
+    /**
+     * Dibuja el panel con los productos, monedas y textos.
+     *
+     * @param g objeto Graphics que funciona para pintar.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
