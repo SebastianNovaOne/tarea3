@@ -97,7 +97,7 @@ public class Expendedor {
     }
 
     /**
-     * Devuelve el producto comprado y deja vacío el lugar para el próximo producto.
+     * Devuelve el producto comprado y deja vacio el lugar para el próximo producto.
      *
      * @return el producto comprado.
      */
@@ -117,16 +117,16 @@ public class Expendedor {
     }
 
     /**
-     * Devuelve el depósito de monedas ingresadas por el usuario.
+     * Devuelve el deposito de monedas ingresadas por el usuario.
      *
-     * @return el depósito de monedas ingresadas.
+     * @return el deposito de monedas ingresadas.
      */
     public Deposito<Moneda> getDepositoMonedasIngresadas() {
         return depositoMonedasIngresadas;
     }
 
     /**
-     * Crea un producto según el tipo indicado.
+     * Crea un producto segun el tipo indicado.
      *
      * @param producto el tipo de producto a crear.
      * @return el producto creado.
@@ -148,6 +148,12 @@ public class Expendedor {
         }
     }
 
+    /**
+     * Devuelve el deposito correspondiente al producto segun su indice.
+     *
+     * @param indice el indice del deposito de producto.
+     * @return el deposito correspondiente, o null si el indice no es valido.
+     */
     public Deposito<Producto> getDepositoProducto(int indice) {
         if (indice >= 0 && indice < depositos.length)
             return depositos[indice];
@@ -155,10 +161,21 @@ public class Expendedor {
             return null;
     }
 
+    /**
+     * Devuelve el deposito de monedas que maneja el vuelto.
+     *
+     * @return el deposito de vuelto.
+     */
     public Deposito<Moneda> getDepositoVuelto() {
         return depositoVuelto;
     }
 
+    /**
+     * Devuelve un nuevo producto creado segun el tipo especificado.
+     *
+     * @param producto el tipo de producto deseado.
+     * @return el producto creado.
+     */
     public Producto getProductoPorTipo(ProductoEnum producto) {
         return crearProducto(producto);
     }
