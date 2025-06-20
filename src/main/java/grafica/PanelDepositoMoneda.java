@@ -16,6 +16,36 @@ public class PanelDepositoMoneda extends JPanel {
         this.setPreferredSize(new Dimension(100, 80));
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, getWidth(), getHeight());
+
+        g.setColor(Color.BLACK);
+        g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+
+        int x = 10;
+        for (int i = 0; i < deposito.getCantidad(); i++) {
+            Moneda m = deposito.getItem(i);
+
+            if (m.getValor() == 1000) {
+                g.setColor(Color.GREEN);
+                g.fillRect(x, 20, 60, 35);
+                g.setColor(Color.BLACK);
+                g.drawString("$" + m.getValor(), x + 15, 40);
+                x += 70;
+            } else {
+                g.setColor(getColorMoneda(m.getValor()));
+                g.fillOval(x, 20, 35, 35);
+                g.setColor(Color.BLACK);
+                g.drawString("$" + m.getValor(), x + 5, 40);
+                x += 35;
+            }
+        }
+    }
+
     private Color getColorMoneda(int valor) {
         switch (valor) {
             case 500: return Color.ORANGE;
