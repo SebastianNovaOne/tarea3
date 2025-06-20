@@ -7,12 +7,20 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Panel para seleccionar moneda y producto, e interactuar con el expendedor.
+ */
 public class PanelComprador extends JPanel {
     private HashMap<String, Zona> zonas;
     private Moneda monedaSeleccionada;
     private ProductoEnum productoSeleccionado;
     private PanelExpendedor expendedor;
 
+    /**
+     * Constructor que recibe el panel expendedor para realizar compras.
+     *
+     * @param exp instancia de PanelExpendedor para interactuar
+     */
     public PanelComprador(PanelExpendedor exp) {
         this.expendedor = exp;
         this.zonas = new HashMap<>();
@@ -69,6 +77,11 @@ public class PanelComprador extends JPanel {
         });
     }
 
+    /**
+     * Dibuja las zonas para seleccionar monedas y productos.
+     *
+     * @param g objeto Graphics que sirve para poder pintar
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -85,11 +98,24 @@ public class PanelComprador extends JPanel {
         }
     }
 
+    /**
+     * Clase interna que representa un areas con color y texto para elegir moneda y producto.
+     */
     private static class Zona {
         int x, y, ancho, alto;
         Color color;
         String texto;
 
+        /**
+         * Constructor para definir la zona.
+         *
+         * @param x coordenada x
+         * @param y coordenada y
+         * @param ancho ancho del rectangulo
+         * @param alto alto del rectangulo
+         * @param color color de fondo
+         * @param texto texto a mostrar
+         */
         public Zona(int x, int y, int ancho, int alto, Color color, String texto) {
             this.x = x;
             this.y = y;
@@ -99,6 +125,11 @@ public class PanelComprador extends JPanel {
             this.texto = texto;
         }
 
+        /**
+         * Dibuja el rectangulo con texto.
+         *
+         * @param g objeto Graphics que sirve para pintar
+         */
         public void dibujar(Graphics g) {
             g.setColor(color);
             g.fillRect(x, y, ancho, alto);
@@ -108,6 +139,13 @@ public class PanelComprador extends JPanel {
             g.drawString(texto, x + 10, y + 25);
         }
 
+        /**
+         * Verifica si un punto esta dentro de la zona.
+         *
+         * @param px coordenada x del punto
+         * @param py coordenada y del punto
+         * @return true si el punto esta dentro, false si no
+         */
         public boolean contiene(int px, int py) {
             return px >= x && px <= x + ancho && py >= y && py <= y + alto;
         }
