@@ -10,7 +10,7 @@ public class PanelDepositoProducto extends JPanel {
 
     public PanelDepositoProducto(Deposito<Producto> deposito) {
         this.deposito = deposito;
-        this.setPreferredSize(new Dimension(0,0));
+        this.setPreferredSize(new Dimension(80,150));
     }
 
     @Override

@@ -13,6 +13,15 @@ public class PanelDepositoMoneda extends JPanel {
 
     public PanelDepositoMoneda(Deposito<Moneda> deposito) {
         this.deposito = deposito;
-        this.setPreferredSize(new Dimension(0, 0));
+        this.setPreferredSize(new Dimension(100, 80));
+    }
+
+    private Color getColorMoneda(int valor) {
+        switch (valor) {
+            case 500: return Color.ORANGE;
+            case 100: return Color.GRAY;
+            case 1000: return Color.GREEN;
+            default: return null;
+        }
     }
 }
