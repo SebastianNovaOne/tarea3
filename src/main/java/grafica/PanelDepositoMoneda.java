@@ -14,6 +14,16 @@ public class PanelDepositoMoneda extends JPanel {
     public PanelDepositoMoneda(Deposito<Moneda> deposito) {
         this.deposito = deposito;
         this.setPreferredSize(new Dimension(100, 80));
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (deposito.getCantidad() > 0) {
+                    deposito.retirar();
+                    repaint();
+                }
+            }
+        });
     }
 
     @Override
